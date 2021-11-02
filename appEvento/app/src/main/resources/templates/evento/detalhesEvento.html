@@ -14,7 +14,7 @@
 	<div class="container" >
 	    <nav style="margin-botton: 100px">
 		    <div class="nav-wrapper">
-		      <a href="#" class="brand-logo" style="margin-left:400px">Cadastro de Eventos</a>
+		      <a href="#" class="brand-logo" style="margin-left:400px">Detalhes do Eventos</a>
 		      <ul class="right hide-on-med-and-down">
 		        <li><a href="#">Home</a></li>
 		        <li><a href="#">Sobre</a></li>
@@ -22,24 +22,17 @@
 		      </ul>
 		    </div>
 		  </nav>
-	    <a href="/eventos" style="margin-top:20px" class="waves-effect waves-light btn"><i class="material-icons left">arrow_back</i>Voltar</a>	
-	    <form method="post" style="margin-top: 30px">
-	        Nome:<input type="text" value="" name="nome"/> 
-	        <div class="row">
-	        	<div class="input-field col s6">
-		       	 	Local:<input type="text" value="" name="local"/>
-		    	</div>
-		    	<div class="input-field col s3"> 
-			        Data:<input type="date" value="" name="data"/> 
-			    </div>
-			    <div class="input-field col s3"> 
-			        Horário:<input type="text" value="" name="horario"/> 
-			    </div>
-	        </div>
-			 <button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar
-	   			<i class="material-icons right">send</i>
-			 </button>
-	    </form>
+	    <a href="/eventos" style="margin-top:20px" class="waves-effect waves-light btn">
+	    	<i class="material-icons left">arrow_back</i>Voltar
+	    </a>	
+	    <div th:each="evento : ${evento}">
+	    	<div class="row">
+	    		<p>Nome:   <span th:text="${evento.nome}"></span></p>
+	    		<p>Local:  <span th:text="${evento.local}"></span></p>
+	    		<p>Data:   <span th:text="${evento.data}"></span></p>
+	    		<p>Horário:<span th:text="${evento.horario}"></span></p>
+	    	</div>
+	    </div>
 	 </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

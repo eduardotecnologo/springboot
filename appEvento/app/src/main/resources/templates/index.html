@@ -10,26 +10,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-    <h1>Lista de Eventos</h1>	
-    <a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Eventos</a>
-    <table>	
-	    <thead>
-	    	<tr>
-    		<th>Nome:</th>
-    		<th>Local:</th>
-    		<th>Data:</th>
-    		<th>Horário:</th>
-	    	</tr>
-	    </thead>
-	    <tbody>
-	    	<tr th:each="evento : ${eventos}">
-	    	<td><span th:text="${evento.nome}"></span></td>
-	    	<td><span th:text="${evento.local}"></span></td>
-	    	<td><span th:text="${evento.data}"></span></td>
-	    	<td><span th:text="${evento.horario}"></span></td>
-		    </tr>
-	    </tbody>	
-	</table>	
+	<div class="container">
+			<nav style="margin-botton: 100px">
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo" style="margin-left:400px">Lista de Eventos</a>
+		      <ul class="right hide-on-med-and-down">
+		        <li><a href="#">Home</a></li>
+		        <li><a href="#">Sobre</a></li>
+		        <li><a href="#">Contato</a></li>
+		      </ul>
+		    </div>
+		  </nav>
+		  <a style="margin-top:20px" href="/cadastrarEvento" class="waves-effect waves-light btn">
+		  		<i class="material-icons left">add_circle_outline</i>Cadastrar Eventos
+		  </a>
+	    <table>	
+		    <thead>
+		    	<tr>
+	    		<th>Nome:</th>
+	    		<th>Local:</th>
+	    		<th>Data:</th>
+	    		<th>Horário:</th>
+		    	</tr>
+		    </thead>
+		    <tbody>
+		    	<tr th:each="evento : ${eventos}">
+		    	<td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
+		    		<span th:text="${evento.nome}"></span></a>
+		    	</td>
+		    	<td><span th:text="${evento.local}"></span></td>
+		    	<td><span th:text="${evento.data}"></span></td>
+		    	<td><span th:text="${evento.horario}"></span></td>
+			    </tr>
+		    </tbody>	
+		</table>
+	</div>	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
